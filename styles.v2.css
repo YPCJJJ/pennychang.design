@@ -14,6 +14,7 @@
   --special-font-style: "Playfair Display";
   --accent-color: #0044FF;
   --transition: all 0.45s ease;
+  --mobile-breakpoint: 1000;
 }
 
 /* Reset & Base Styles */
@@ -102,7 +103,7 @@ body {
   animation:heroFadeIn .6s ease .15s forwards;
   will-change: transform, opacity;
 }
-.hero-subtitle{margin:0 0 40px;color:var(--text);font-size:16px;letter-spacing:.3px;font-weight: 400;}
+.hero-subtitle{margin:0 0 80px;color:var(--text);font-size:16px;letter-spacing:.3px;font-weight: 400;}
 
 /* Fade-in only */
 @keyframes heroFadeIn{to{opacity:1;transform:translateY(0)}}
@@ -438,10 +439,24 @@ body {
 
 /* brand logo */
 .brand-logos{
-  display:flex;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap:24px;
   align-items:center;
-  margin-top:8px
+  justify-items:center;
+  margin: 40px;
+  
+}
+
+.brand-logos img{
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: filter .3s ease, opacity .3s ease;
+  max-height: 40px;
+}
+.brand-logos img:hover{
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
 
@@ -464,12 +479,42 @@ body {
 
 /* ===== Resume Page ===== */
 
-.resume-page{padding:0 40px}
+.resume-page{padding:0 120px}
+@media (max-width: 1000px){.resume-page{padding:0 40px}}
 .resume-head{
-  display:grid;gap:16px;align-items:center ;padding:24px 0px 24px;
-  grid-template-columns:440px 1fr .8fr;border-bottom: 0.5px solid var(--border-bottom);
+  display:grid;gap:16px;align-items:center ;padding:40px 0px 24px;
+  grid-template-columns:1fr auto;border-bottom: 0.5px solid var(--border-bottom);
 }
-@media (max-width:980px){.resume-head{grid-template-columns:1fr}}
+.resume-head > div:first-child,
+.resume-head .contacts {
+  grid-column: 1;
+}
+.resume-head .qr-wrap {
+  grid-column: 2;
+  justify-content: flex-start;
+  width: -webkit-fill-available;
+
+  
+}
+@media (max-width: 1000px){
+  .resume-head{
+    gap: 32px;
+  }
+}
+@media (max-width: 770px){
+  .resume-head{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .resume-head > div:first-child,
+  .resume-head .contacts,
+  .resume-head .qr-wrap {
+    grid-column: 1;
+  }
+  .resume-head .qr-wrap {
+    justify-self: center;
+  }
+}
 .name{font:700 32px/1.3 Inter,system-ui;margin:0}
 .name .en{font-family:var(--special-font-style),serif;font-size:32px ;font-weight:700;margin-left:.25em}
 .title{font-size:18px ;font-weight:400 ;margin:.25rem 0 0;color:#222}
@@ -483,23 +528,40 @@ body {
 
 /* 區塊：左標題右內容 */
 .resume-sec{
-  display:grid;grid-template-columns:440px 1fr;gap:16px;
-  padding:24px 0;border-bottom: 0.5px solid var(--border-bottom);
+  display:grid;grid-template-columns:440px 1fr;gap:8px;
+  padding:32px 0;border-bottom: 0.5px solid var(--border-bottom);
 }
 .resume-sec:last-of-type{border-bottom:0}
+@media (max-width: 1000px){.resume-sec{grid-template-columns:1fr}}
 @media (max-width:720px){.resume-sec{grid-template-columns:1fr}}
-.sec-title{font-size:24px;font-weight:300;letter-spacing:-1px;margin:0;color:#111;opacity: 0.9;}
+.sec-title{font-size:24px;
+  font-weight:300;
+  letter-spacing:-1px;
+  margin:0;
+  color: var(--muted);
+  opacity: 0.6;
+}
 .sec-body{font-size:16px;font-weight:400;letter-spacing:0%;color:#333;line-height:1.7}
 .resume-sec ul{margin:0;padding-left:20px}
 .resume-sec li{margin-bottom:6px}
 
+
 /* Experience / Skills / Awards */
 .jobs{display:grid;gap:18px}
-.job{padding:8px 0}
+.job{padding:0px 0px 16px 0px}
 .job:last-child{border-bottom:0}
 .job-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.job-head h3{margin:0;font-size:20px}
-.job-sub{margin: -0.2em 0rem 0.8rem;color:#333}
+.job-head h3{margin:0;font-size:22px}
+.job-sub{
+  margin: -0.4em 0rem 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  opacity: 0.6;
+}
+.when{
+  font-weight: 600;
+  color: var(--brand);
+}
 .bullets{margin:.2rem 0 .6rem 1.2rem}
 .bullets li{margin:.25rem 0}
 .skills{display:grid;gap:6px;list-style:disc;margin:.2rem 0 .6rem 1.2rem}
@@ -508,15 +570,15 @@ body {
 @media (max-width:560px){.skills.three{grid-template-columns:1fr}}
 .awards .two{columns:2}
 @media (max-width:720px){.awards .two{columns:1}}
-.award-logos{display:flex;gap:24px;align-items:center;margin-top:8px}
-.award-logos img{height:42px;width:auto;object-fit:contain;opacity:.95}
+.award-logos{display:flex;gap:24px;align-items:center;margin-top:16px}
+.award-logos img{height:90px;width:auto;object-fit:contain;opacity:.95}
 
 
 
 
 /* CTA */
 .resume-cta{
-  text-align:left;
+  text-align:center;
   max-width: var(--container);
   margin: 0 auto;
   padding:64px 0 80px
