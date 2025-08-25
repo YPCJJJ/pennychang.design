@@ -131,7 +131,7 @@ body {
     margin: 0 0 40px 0px;
     gap:16px;
   }
-  .brand-logos img{max-height: 48px;}
+  .brand-logos img{max-height: 40px;}
 }
 
 /* 360px breakpoint removed; 480px handles two columns and 48px logo height */
