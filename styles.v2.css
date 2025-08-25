@@ -122,7 +122,19 @@ body {
   .hero-subtitle{
     font-size: 14px;
   }
+  .hero.container{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .brand-logos{
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 0 40px 0px;
+    gap:16px;
+  }
+  .brand-logos img{max-height: 48px;}
 }
+
+/* 360px breakpoint removed; 480px handles two columns and 48px logo height */
 
 /* Fade-in only */
 @keyframes heroFadeIn{to{opacity:1;transform:translateY(0)}}
@@ -465,6 +477,12 @@ body {
   
 }
 
+@media (max-width: 1000px){
+  .brand-logos{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .brand-logos img{
   filter: grayscale(100%);
   opacity: 0.9;
@@ -474,6 +492,12 @@ body {
 .brand-logos img:hover{
   filter: grayscale(0%);
   opacity: 1;
+}
+
+/* Ensure 480px overrides come after 1000px rules for precedence */
+@media (max-width: 480px){
+  .brand-logos{grid-template-columns: repeat(2, 1fr);}
+  .brand-logos img{max-height: 48px;}
 }
 
 
