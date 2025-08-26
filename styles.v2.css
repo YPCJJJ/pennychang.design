@@ -11,7 +11,7 @@
   --radius: 0px;
   --card-radius: 0px;
   --default-font-style: "Noto sans";
-  --special-font-style: "Playfair Display";
+  --special-font-style: "Times New Roman";
   --accent-color: #0044FF;
   --transition: all 0.45s ease;
   --mobile-breakpoint: 1000;
@@ -97,7 +97,7 @@ body {
 .hero{text-align:center;padding:0px;position:relative;z-index:0;will-change:transform}
 .hero-title{
   font-family:var(--special-font-style),serif;
-  font-size:clamp(28px,5vw,48px);color:var(--text);
+  font-size:clamp(28px,5vw,64px);color:var(--text);
   line-height:1.15;margin:64px 0 14px;font-weight:600;
   opacity:0;transform:translateY(8px);
   animation:heroFadeIn .6s ease .15s forwards;
