@@ -78,7 +78,7 @@ body {
 
 .nav-right{
   display: flex;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
   justify-content: flex-end;
 }
@@ -392,10 +392,11 @@ body {
   font-weight: 400;
   margin: 0 0 4px 0;
   line-height: 1.5;
+  margin-bottom: 16px;
 }
 
-.project-teamandwork .info-item {
-  margin-bottom: 16px;
+.info-item {
+  margin-bottom: 24px;
 }
 
 .project-teamandwork .info-item:last-child {
