@@ -845,13 +845,15 @@ body {
   width: 100%;
   margin: 40px 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .banner img {
+  display: block;
   width: 100%;
   height: auto;
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--card-radius);
   box-shadow: var(--shadow);
   transition: var(--transition);
