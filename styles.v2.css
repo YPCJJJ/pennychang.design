@@ -213,7 +213,7 @@ body {
 
 @media (max-width: 480px){
   .brand-logos{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin: 0 0 40px 0px;
     gap: 16px;
   }
@@ -233,7 +233,7 @@ body {
 
 @media (max-width: 480px){
   .brand-logos img{
-    max-height: 48px;
+    max-height: 32px;
   }
 }
 
